@@ -10,10 +10,12 @@ This is a project for Udacity's Self Driving Car Nanodegree. The objective is to
 
 <img src="/images/video.gif" width="640">
 
+Segmented road pixels are highlighted in green. Raw images are from [Kitti Road dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php)
+
 ---
 ### Background
 
-This project is based on [FCN-8 architecture](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf) 
+This project is based on the [FCN-8 architecture](https://arxiv.org/pdf/1605.06211.pdf) implementation.
 
 **FCN-8 - Encoder**
 
@@ -21,7 +23,7 @@ The encoder for FCN-8 is the VGG16 model pretrained on ImageNet for classificati
 
 A 1-by-1 convolution is a result of sweeping a 1-by-1 kernel over the input with a sliding window and performing an element-wise multiplication and summation.
 
-<img src="/images/1x1Convolution.png" width="480">
+<img src="/images/1x1Convolution.png" width="360">
 
 This will preserve the spatial information as we are not flattening out the output from previous layers and assuming interaction among individual input nodes, as in the fully-connected layers.
 
@@ -109,6 +111,7 @@ The training loss over 12 epoch is as shown below:
 ### Installation
 
 **GPU**
+
 `main.py` will check to make sure you are using GPU - if you don't have a GPU on your system, you can use AWS or another cloud computing platform.
 
 **Install Anaconda:**
@@ -144,8 +147,8 @@ To exit the environment, simply close the terminal window or run the following c
 $ conda deactivate semantic-segmentation-gpu
 ```
 
-
 **Dataset**
+
 Download the [Kitti Road dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php) from [here](http://www.cvlibs.net/download.php?file=data_road.zip).  Extract the dataset in the `data` folder.  This will create the folder `data_road` with all the training a test images.
 
 ---
