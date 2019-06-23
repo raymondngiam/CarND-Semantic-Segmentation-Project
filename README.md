@@ -87,12 +87,12 @@ These skip connections allow the network to use information from multiple resolu
 
 The final model implementation is as illustrated below:
 
-<img src="/images/SemanticSegmentation.png" width="640">
+<img src="/images/SemanticSegmentation.png" width="840">
 
 The parameters used in the training of the model is as summarized below:
 
-|             | Value   |
-| -----------:|--------:|
+|Parameter    | Value   |
+|------------:|--------:|
 |Epoch        | 12      |
 |Batch size   | 10      |
 |Keep prob    | 0.3     |
