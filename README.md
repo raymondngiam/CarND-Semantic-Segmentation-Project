@@ -16,11 +16,12 @@ This is a project for Udacity's Self Driving Car Nanodegree. The objective is to
 This project is based on [FCN-8 architecture](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf) 
 
 **FCN-8 - Encoder**
+
 The encoder for FCN-8 is the VGG16 model pretrained on ImageNet for classification. The fully-connected layers of the VGG16 model are replaced by 1-by-1 convolution layers.
 
 A 1-by-1 convolution is a result of sweeping a 1-by-1 kernel over the input with a sliding window and performing an element-wise multiplication and summation.
 
-<img src="/images/1x1Convolution.png" width="640">
+<img src="/images/1x1Convolution.png" width="480">
 
 This will preserve the spatial information as we are not flattening out the output from previous layers and assuming interaction among individual input nodes, as in the fully-connected layers.
 
@@ -29,13 +30,12 @@ The number of kernels of a 1-by-1 convolution layer is equivalent to the number 
 In the context of this project, we are going to classify the image pixels into two classes, namely road or background. Thus, we will have two kernels for each 1-by-1 convolution layer that is applied to the VGG16 encoder layers.
 
 **FCN-8 - Decoder**
+
 To build the decoder portion of FCN-8, we’ll upsample the input to the original image size using transposed convolutions. The shape of the tensor after the final convolutional transpose layer will be 4-dimensional: (batch_size, original_height, original_width, num_classes).
 
 Transposed convolutions help in upsampling the previous layer to a higher resolution or dimension. Upsampling is a classic signal processing technique which is often accompanied by interpolation. 
 
 We can use a transposed convolution to transfer patches of data onto a sparse matrix, then we can fill the sparse area of the matrix based on the transferred information. A helpful animations of transposed convolution is shown below:
-
-_N.B.: Blue maps are inputs, and cyan maps are outputs._
 
 <table style="width:100%; table-layout:fixed;">
   <tr>
@@ -64,6 +64,8 @@ _N.B.: Blue maps are inputs, and cyan maps are outputs._
   </tr>
 </table>
 
+_Note: Blue maps are inputs, and cyan maps are outputs._
+
 A complete list of convolution arithmetic animations can be found [here](https://github.com/vdumoulin/conv_arithmetic)
 
 **Skip Connections**
@@ -85,7 +87,7 @@ These skip connections allow the network to use information from multiple resolu
 
 The final model implementation is as illustrated below:
 
-<img src="/images/SemanticSegmentation" width="640">
+<img src="/images/SemanticSegmentation.png" width="640">
 
 The parameters used in the training of the model is as summarized below:
 
